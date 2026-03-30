@@ -1,0 +1,1546 @@
+[gd_scene format=4 uid="uid://c3ljfn4h6uq8w"]
+
+[ext_resource type="Texture2D" uid="uid://csf2hs36j38l4" path="res://assets/sprites/pacman_map.png" id="1_2q6dc"]
+[ext_resource type="FontFile" uid="uid://rs023qm5m8ga" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_w7c3h"]
+[ext_resource type="Script" uid="uid://b88650txgdfxe" path="res://scripts/score_texts.gd" id="2_w8frs"]
+[ext_resource type="Texture2D" uid="uid://cw3vo7pnehef5" path="res://assets/sprites/map_colors.png" id="4_mx8sn"]
+[ext_resource type="Script" uid="uid://cwos8eoypypbf" path="res://scripts/map_and_teleporters.gd" id="5_2r41h"]
+[ext_resource type="PackedScene" uid="uid://cvlqirrfxsm0w" path="res://scenes/pac_man.tscn" id="5_ppgk2"]
+[ext_resource type="Texture2D" uid="uid://b4hhg1l71gw28" path="res://assets/sprites/lives/five.png" id="7_ux5qa"]
+[ext_resource type="Script" uid="uid://cc05djwdr66r5" path="res://scripts/lower_ui.gd" id="7_w3o6u"]
+[ext_resource type="Texture2D" uid="uid://cflgykms1nork" path="res://assets/sprites/lives/four.png" id="8_82cfe"]
+[ext_resource type="Texture2D" uid="uid://brjo54j67yh3" path="res://assets/sprites/lives/one.png" id="9_gunhw"]
+[ext_resource type="Texture2D" uid="uid://cvernlmc34r1p" path="res://assets/sprites/lives/three.png" id="10_8gofh"]
+[ext_resource type="Texture2D" uid="uid://vafg7x4a5lft" path="res://assets/sprites/lives/two.png" id="11_h6wmr"]
+[ext_resource type="Texture2D" uid="uid://d04ih56snwk2u" path="res://assets/sprites/levels/1.png" id="12_pqd0y"]
+[ext_resource type="Texture2D" uid="uid://btsdtmxyndkg6" path="res://assets/sprites/levels/2.png" id="13_5k0ak"]
+[ext_resource type="Texture2D" uid="uid://dxrfy4i26ng6v" path="res://assets/sprites/lives/zero.png" id="14_gur6y"]
+[ext_resource type="Texture2D" uid="uid://b7k3rsl88kasq" path="res://assets/sprites/levels/3.png" id="14_wu01b"]
+[ext_resource type="Texture2D" uid="uid://b64b1l7ll5jck" path="res://assets/sprites/levels/4.png" id="15_3ies3"]
+[ext_resource type="Texture2D" uid="uid://cskketp0a4jgr" path="res://assets/sprites/levels/5.png" id="16_xy2fk"]
+[ext_resource type="Texture2D" uid="uid://dvlgurkskoc6i" path="res://assets/sprites/levels/6.png" id="17_cmcjb"]
+[ext_resource type="Texture2D" uid="uid://bpgv1g16rlh2p" path="res://assets/sprites/levels/7.png" id="18_kih21"]
+[ext_resource type="Texture2D" uid="uid://b7obyw13w2pcq" path="res://assets/sprites/levels/8.png" id="19_w3o6u"]
+[ext_resource type="Texture2D" uid="uid://b1bn5pemgh6jh" path="res://assets/sprites/levels/9.png" id="20_2e2fo"]
+[ext_resource type="Texture2D" uid="uid://b7u60cuwdxp3b" path="res://assets/sprites/levels/10.png" id="21_gur6y"]
+[ext_resource type="Texture2D" uid="uid://dfb4m54h6fpx7" path="res://assets/sprites/levels/11.png" id="22_v3why"]
+[ext_resource type="Texture2D" uid="uid://7nqjgf6730lo" path="res://assets/sprites/levels/12.png" id="23_asl66"]
+[ext_resource type="Texture2D" uid="uid://bpyiabptscbow" path="res://assets/sprites/levels/13.png" id="24_2jdvr"]
+[ext_resource type="Texture2D" uid="uid://hgbn43mdbx0v" path="res://assets/sprites/levels/14.png" id="25_q4oe8"]
+[ext_resource type="Texture2D" uid="uid://w2m0lvm45bu6" path="res://assets/sprites/levels/15.png" id="26_svjb4"]
+[ext_resource type="Texture2D" uid="uid://bixsc2uq7krtm" path="res://assets/sprites/levels/16.png" id="27_c1pbi"]
+[ext_resource type="Texture2D" uid="uid://ctuuyty26v28k" path="res://assets/sprites/levels/17.png" id="28_535f6"]
+[ext_resource type="Texture2D" uid="uid://ccvclwescppk6" path="res://assets/sprites/levels/18.png" id="29_50fbu"]
+[ext_resource type="Texture2D" uid="uid://doytqlavjq7do" path="res://assets/sprites/levels/19.png" id="30_0fmhk"]
+[ext_resource type="PackedScene" uid="uid://be81101u1g4lu" path="res://scenes/point.tscn" id="32_2e2fo"]
+[ext_resource type="PackedScene" uid="uid://cflqxx30bidwc" path="res://scenes/ghost.tscn" id="34_v3why"]
+[ext_resource type="Texture2D" uid="uid://cb2c1s6h6gek6" path="res://assets/Arcade - Pac-Man - Miscellaneous - Maze Parts.png" id="35_q4oe8"]
+[ext_resource type="Script" uid="uid://ddao3ijnimn8g" path="res://scenes/pac_man_location_tracker.gd" id="36_2jdvr"]
+[ext_resource type="Script" uid="uid://dugco2ffkybq2" path="res://scripts/fpscounter_dev.gd" id="36_q4oe8"]
+[ext_resource type="Script" uid="uid://b06t4uxdpnibf" path="res://scripts/four_tiles.gd" id="37_svjb4"]
+[ext_resource type="Script" uid="uid://cdx7xqxuqkhx7" path="res://scripts/two_tiles_inky.gd" id="38_c1pbi"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_v3why"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_2jdvr"]
+vertices = PackedVector2Array(4, 1, -4, 1, -4, -1, 4, -1)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-4, -1, 4, -1, 4, 1, -4, 1)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_q4oe8"]
+vertices = PackedVector2Array(1, -0.9765625, 4, -1, 4, 1, 1, 1, 1, 4, -1, 4, -1, -4, 1, -4)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(0, 3, 6), PackedInt32Array(7, 0, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1, -4, 1, -0.9742451, 4, -1, 4, 1, 1, 1, 1, 4, -1, 4, -1, -4)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_svjb4"]
+vertices = PackedVector2Array(4, -1, 4, 1, 1, 1, -1, -1, -1, 4, 1, 4)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(4, 1, 4, -1, -1, -1, -1, 4, 1, 4, 1, 1)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_c1pbi"]
+vertices = PackedVector2Array(1, -1, 4, -1, 4, 1, -1, 1, -1, -4, 1, -4)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1, -4, -1, -4, -1, 1, 4, 1, 4, -1, 1, -1)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_535f6"]
+vertices = PackedVector2Array(4.5, 4.5, -1, 4.5, -1, -1, 4.5, -1)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(4.5, -1, -1, -1, -1, 4.5, 4.5, 4.5)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_hv3ux"]
+vertices = PackedVector2Array(4.5, 4.5, -1, 4.5, -1, -4.5, 4.5, -4.5)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1, 4.5, -1, -4.5, 4.5, -4.5, 4.5, 4.5)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_tcyu4"]
+vertices = PackedVector2Array(4.5, 1, -1, 1, -1, -4.5, 4.5, -4.5)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1, -4.5, -1, 1, 4.5, 1, 4.5, -4.5)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_50fbu"]
+vertices = PackedVector2Array(1, 4, -1, 4, -1, -4, 1, -4)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1, -4, 1, 4, -1, 4, -1, -4)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0fmhk"]
+vertices = PackedVector2Array(-1, 0.9765625, -4, 1, -4, -1, -1, -1, 1, -4, 1, 4, -1, 4, -1, -4)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 0), PackedInt32Array(4, 0, 3), PackedInt32Array(4, 3, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1, 4, -1, 0.9742451, -4, 1, -4, -1, -1, -1, -1, -4, 1, -4, 1, 4)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_iafhg"]
+vertices = PackedVector2Array(1, -1, 1, 4, -1, 4, -1, 1, -4, -1, -4, 1)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1, 4, 1, 4, 1, -1, -4, -1, -4, 1, -1, 1)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_cr74b"]
+vertices = PackedVector2Array(1, 1, -4, 1, -4, -1, -1, -1, 1, -4, -1, -4)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-4, -1, -4, 1, 1, 1, 1, -4, -1, -4, -1, -1)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_vmndo"]
+vertices = PackedVector2Array(4.5, 4.5, -4.5, 4.5, -4.5, -1, 4.5, -1)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(4.5, -1, -4.5, -1, -4.5, 4.5, 4.5, 4.5)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_bo6tc"]
+vertices = PackedVector2Array(4.5, -1, 4.5, 4.5, 3, 4.5, 3, 1, -4.5, -1, -4.5, 1)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(4.5, -1, 4.5, 4.5, 3, 4.5, 3, 1, -4.5, 1, -4.5, -1)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_uhfbm"]
+vertices = PackedVector2Array(1, -0.9765625, 4, -1, 4, 1, 1, 1, 1, 4, -1, 4, -1, 1, -1, -1, -4, -1, -4, 1, 1, -4, -1, -4)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 0, 3, 6, 8), PackedInt32Array(6, 9, 8), PackedInt32Array(10, 0, 7, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1, -4, 1, -0.9742451, 4, -1, 4, 1, 1, 1, 1, 4, -1, 4, -1, 1, -4, 1, -4, -1, -1, -1, -1, -4)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_lqb7q"]
+vertices = PackedVector2Array(0.9765625, 1, 1, 4, -1, 4, -1, 1, 4, -1, 4, 1, -4, -1, -4, 1)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 0, 6), PackedInt32Array(6, 0, 3), PackedInt32Array(6, 3, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(4, 1, 0.9742451, 1, 1, 4, -1, 4, -1, 1, -4, 1, -4, -1, 4, -1)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ok3ci"]
+vertices = PackedVector2Array(4, 1, -1, 0.9765625, -1, -1, 4, -1)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1, 0.9742451, -1, -1, 4, -1, 4, 1)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_7iqcu"]
+vertices = PackedVector2Array(4.5, 4.5, 3, 4.5, 3, -4.5, 4.5, -4.5)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(3, -4.5, 4.5, -4.5, 4.5, 4.5, 3, 4.5)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_v4d4p"]
+vertices = PackedVector2Array(4.5, 4.5, -4.5, 4.5, -4.5, -1, 3, -1, 4.5, -4, 3, -4)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-4.5, -1, -4.5, 4.5, 4.5, 4.5, 4.5, -4, 3, -4, 3, -1)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_30hdq"]
+vertices = PackedVector2Array(4.5, -1, 4.5, 1, -3, 1, -4.5, -1, -4.5, 4.5, -3, 4.5)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-4.5, -1, -4.5, 4.5, -3, 4.5, -3, 1, 4.5, 1, 4.5, -1)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3fqns"]
+vertices = PackedVector2Array(4.5, 1, -4.5, 1, -4.5, -4.5, 4.5, -4.5)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(4.5, 1, -4.5, 1, -4.5, -4.5, 4.5, -4.5)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_j4eoh"]
+vertices = PackedVector2Array(-0.9765625, -1, -1, -4, 1, -4, 1, -1, 4, -1, 4, 1, -4, 1, -4, -1)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(0, 3, 6), PackedInt32Array(0, 6, 7)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-4, -1, -0.9742451, -1, -1, -4, 1, -4, 1, -1, 4, -1, 4, 1, -4, 1)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_bhb1k"]
+vertices = PackedVector2Array(1, 0.9765625, -4, 1, -4, -1, 1, -1)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1, 0.9742451, 1, -1, -4, -1, -4, 1)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_sc620"]
+vertices = PackedVector2Array(-3, 4.5, -4.5, 4.5, -4.5, -4.5, -3, -4.5)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-3, -4.5, -4.5, -4.5, -4.5, 4.5, -3, 4.5)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_421lv"]
+vertices = PackedVector2Array(-3, -1, 4.5, -1, 4.5, 4.5, -4.5, 4.5, -4.5, -4, -3, -4)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4, 5)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(4.5, -1, 4.5, 4.5, -4.5, 4.5, -4.5, -4, -3, -4, -3, -1)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_oksur"]
+vertices = PackedVector2Array(4.5, 4.5, -4.5, 4.5, -4.5, -4.5, 4.5, -4.5)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-4.5, -4.5, -4.5, 4.5, 4.5, 4.5, 4.5, -4.5)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_jide8"]
+vertices = PackedVector2Array(1, 4.5, -4.5, 4.5, -4.5, -1, 1, -1)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1, 4.5, 1, -1, -4.5, -1, -4.5, 4.5)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_4h8xp"]
+vertices = PackedVector2Array(1, 4.5, -4.5, 4.5, -4.5, -4.5, 1, -4.5)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(1, 4.5, 1, -4.5, -4.5, -4.5, -4.5, 4.5)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ql8jr"]
+vertices = PackedVector2Array(1, 1, -4.5, 1, -4.5, -4.5, 1, -4.5)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-4.5, 1, 1, 1, 1, -4.5, -4.5, -4.5)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ppgk2"]
+texture = ExtResource("4_mx8sn")
+texture_region_size = Vector2i(8, 8)
+use_texture_padding = false
+0:0/0 = 0
+0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_v3why")
+1:0/0 = 0
+1:0/0/physics_layer_2/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+1:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_v3why")
+2:0/0 = 0
+2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_v3why")
+3:0/0 = 0
+3:0/0/physics_layer_2/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+3:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_v3why")
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.5, -1, 4.5, -1, 4.5, 1, -4.5, 1)
+0:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-4.5, -1, 4.5, -1, 4.5, 1, -4.5, 1)
+0:1/0/terrains_peering_bit/right_side = 0
+0:1/0/terrains_peering_bit/left_side = 0
+0:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_2jdvr")
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrain = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(1, -4.5, 1, 4.5, -1, 4.5, -1, -4.5)
+1:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(1, -4.5, 1, 4.5, -1, 4.5, -1, -4.5)
+1:1/0/terrains_peering_bit/bottom_side = 0
+1:1/0/terrains_peering_bit/top_side = 0
+1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_50fbu")
+2:1/0 = 0
+2:1/0/terrain_set = 0
+2:1/0/terrain = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(1, -4.5, 1, -1, 4.5, -1, 4.5, 1, 1, 1, 1, 4.5, -1, 4.5, -1, 1, -4.5, 1, -4.5, -1, -1, -1, -1, -4.5)
+2:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(1, -4.5, 1, -1, 4.5, -1, 4.5, 1, 1, 1, 1, 4.5, -1, 4.5, -1, 1, -4.5, 1, -4.5, -1, -1, -1, -1, -4.5)
+2:1/0/terrains_peering_bit/right_side = 0
+2:1/0/terrains_peering_bit/bottom_side = 0
+2:1/0/terrains_peering_bit/left_side = 0
+2:1/0/terrains_peering_bit/top_side = 0
+2:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_uhfbm")
+3:2/0 = 0
+3:2/0/terrain_set = 0
+3:2/0/terrain = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.5, -1, -1, -1, -1, -4.5, 1, -4.5, 1, -1, 4.5, -1, 4.5, 1, -4.5, 1)
+3:2/0/physics_layer_1/polygon_0/points = PackedVector2Array(-4.5, -1, -1, -1, -1, -4.5, 1, -4.5, 1, -1, 4.5, -1, 4.5, 1, -4.5, 1)
+3:2/0/terrains_peering_bit/right_side = 0
+3:2/0/terrains_peering_bit/left_side = 0
+3:2/0/terrains_peering_bit/top_side = 0
+3:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_j4eoh")
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/terrain = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(4.5, 1, 1, 1, 1, 4.5, -1, 4.5, -1, 1, -4.5, 1, -4.5, -1, 4.5, -1)
+2:2/0/physics_layer_1/polygon_0/points = PackedVector2Array(4.5, 1, 1, 1, 1, 4.5, -1, 4.5, -1, 1, -4.5, 1, -4.5, -1, 4.5, -1)
+2:2/0/terrains_peering_bit/right_side = 0
+2:2/0/terrains_peering_bit/bottom_side = 0
+2:2/0/terrains_peering_bit/left_side = 0
+2:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_lqb7q")
+1:2/0 = 0
+1:2/0/terrain_set = 0
+1:2/0/terrain = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1, 4.5, -1, 1, -4.5, 1, -4.5, -1, -1, -1, -1, -4.5, 1, -4.5, 1, 4.5)
+1:2/0/physics_layer_1/polygon_0/points = PackedVector2Array(-1, 4.5, -1, 1, -4.5, 1, -4.5, -1, -1, -1, -1, -4.5, 1, -4.5, 1, 4.5)
+1:2/0/terrains_peering_bit/bottom_side = 0
+1:2/0/terrains_peering_bit/left_side = 0
+1:2/0/terrains_peering_bit/top_side = 0
+1:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_0fmhk")
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrain = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(1, -4.5, 1, -1, 4.5, -1, 4.5, 1, 1, 1, 1, 4.5, -1, 4.5, -1, -4.5)
+0:2/0/physics_layer_1/polygon_0/points = PackedVector2Array(1, -4.5, 1, -1, 4.5, -1, 4.5, 1, 1, 1, 1, 4.5, -1, 4.5, -1, -4.5)
+0:2/0/terrains_peering_bit/right_side = 0
+0:2/0/terrains_peering_bit/bottom_side = 0
+0:2/0/terrains_peering_bit/top_side = 0
+0:2/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_q4oe8")
+0:3/0 = 0
+0:3/0/terrain_set = 0
+0:3/0/terrain = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(4.5, -1, 4.5, 1, 1, 1, 1, 4.5, -1, 4.5, -1, -1)
+0:3/0/physics_layer_1/polygon_0/points = PackedVector2Array(4.5, -1, 4.5, 1, 1, 1, 1, 4.5, -1, 4.5, -1, -1)
+0:3/0/terrains_peering_bit/right_side = 0
+0:3/0/terrains_peering_bit/bottom_side = 0
+0:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_svjb4")
+1:4/0 = 0
+1:4/0/terrain_set = 0
+1:4/0/terrain = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.5, 1, -4.5, -1, -1, -1, -1, -4.5, 1, -4.5, 1, 1)
+1:4/0/physics_layer_1/polygon_0/points = PackedVector2Array(-4.5, 1, -4.5, -1, -1, -1, -1, -4.5, 1, -4.5, 1, 1)
+1:4/0/terrains_peering_bit/left_side = 0
+1:4/0/terrains_peering_bit/top_side = 0
+1:4/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_cr74b")
+1:3/0 = 0
+1:3/0/terrain_set = 0
+1:3/0/terrain = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(1, 4.5, -1, 4.5, -1, 1, -4.5, 1, -4.5, -1, 1, -1)
+1:3/0/physics_layer_1/polygon_0/points = PackedVector2Array(1, 4.5, -1, 4.5, -1, 1, -4.5, 1, -4.5, -1, 1, -1)
+1:3/0/terrains_peering_bit/bottom_side = 0
+1:3/0/terrains_peering_bit/left_side = 0
+1:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_iafhg")
+0:4/0 = 0
+0:4/0/terrain_set = 0
+0:4/0/terrain = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1, -4.5, 1, -4.5, 1, -1, 4.5, -1, 4.5, 1, -1, 1)
+0:4/0/physics_layer_1/polygon_0/points = PackedVector2Array(-1, -4.5, 1, -4.5, 1, -1, 4.5, -1, 4.5, 1, -1, 1)
+0:4/0/terrains_peering_bit/right_side = 0
+0:4/0/terrains_peering_bit/top_side = 0
+0:4/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_c1pbi")
+2:3/0 = 0
+2:3/0/terrain_set = 0
+2:3/0/terrain = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1, 1, -1, -1, 4.5, -1, 4.5, 1)
+2:3/0/physics_layer_1/polygon_0/points = PackedVector2Array(4.5, -1, 4.5, 1, -1, 1, -1, -1)
+2:3/0/terrains_peering_bit/right_side = 0
+2:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ok3ci")
+3:3/0 = 0
+3:3/0/terrain_set = 0
+3:3/0/terrain = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(1, 1, 1, -1, -4.5, -1, -4.5, 1)
+3:3/0/physics_layer_1/polygon_0/points = PackedVector2Array(-4.5, 1, -4.5, -1, 1, -1, 1, 1)
+3:3/0/terrains_peering_bit/left_side = 0
+3:3/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bhb1k")
+2:4/0 = 0
+2:4/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_7iqcu")
+3:4/0 = 0
+3:4/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_sc620")
+0:5/0 = 0
+0:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_535f6")
+1:5/0 = 0
+1:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_vmndo")
+2:5/0 = 0
+2:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_v4d4p")
+3:5/0 = 0
+3:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_421lv")
+5:5/0 = 0
+5:5/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_jide8")
+5:6/0 = 0
+5:6/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_4h8xp")
+5:7/0 = 0
+5:7/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ql8jr")
+2:7/0 = 0
+2:7/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_3fqns")
+0:7/0 = 0
+0:7/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_tcyu4")
+0:6/0 = 0
+0:6/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_hv3ux")
+4:6/0 = 0
+4:6/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_oksur")
+1:6/0 = 0
+1:6/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bo6tc")
+2:6/0 = 0
+2:6/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_30hdq")
+
+[sub_resource type="TileSet" id="TileSet_2r41h"]
+tile_size = Vector2i(8, 8)
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+physics_layer_1/collision_layer = 1
+physics_layer_2/collision_layer = 128
+physics_layer_2/collision_mask = 128
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+navigation_layer_0/layers = 1
+sources/0 = SubResource("TileSetAtlasSource_ppgk2")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klq6b"]
+size = Vector2(8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2r41h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_gur6y")
+}],
+"loop": false,
+"name": &"0",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_gunhw")
+}],
+"loop": false,
+"name": &"1",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_h6wmr")
+}],
+"loop": false,
+"name": &"2",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_8gofh")
+}],
+"loop": false,
+"name": &"3",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_82cfe")
+}],
+"loop": false,
+"name": &"4",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ux5qa")
+}],
+"loop": false,
+"name": &"5",
+"speed": 0.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_556r4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_pqd0y")
+}],
+"loop": false,
+"name": &"1",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_gur6y")
+}],
+"loop": false,
+"name": &"10",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_v3why")
+}],
+"loop": false,
+"name": &"11",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_asl66")
+}],
+"loop": false,
+"name": &"12",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_2jdvr")
+}],
+"loop": false,
+"name": &"13",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_q4oe8")
+}],
+"loop": false,
+"name": &"14",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_svjb4")
+}],
+"loop": false,
+"name": &"15",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_c1pbi")
+}],
+"loop": false,
+"name": &"16",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_535f6")
+}],
+"loop": false,
+"name": &"17",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_50fbu")
+}],
+"loop": false,
+"name": &"18",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_0fmhk")
+}],
+"loop": true,
+"name": &"19",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_5k0ak")
+}],
+"loop": false,
+"name": &"2",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_wu01b")
+}],
+"loop": false,
+"name": &"3",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_3ies3")
+}],
+"loop": false,
+"name": &"4",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_xy2fk")
+}],
+"loop": false,
+"name": &"5",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_cmcjb")
+}],
+"loop": false,
+"name": &"6",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_kih21")
+}],
+"loop": false,
+"name": &"7",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_w3o6u")
+}],
+"loop": false,
+"name": &"8",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_2e2fo")
+}],
+"loop": false,
+"name": &"9",
+"speed": 0.0
+}]
+
+[node name="Level" type="Node2D" unique_id=373382970]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1619703937]
+offset_right = 576.0
+offset_bottom = 324.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="PacmanMap" type="Sprite2D" parent="." unique_id=1263576111]
+position = Vector2(288, 162)
+texture = ExtResource("1_2q6dc")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=878388624]
+position = Vector2(288, 162)
+zoom = Vector2(2.1, 2.1)
+
+[node name="Texts" type="Node2D" parent="." unique_id=1067019234]
+script = ExtResource("2_w8frs")
+
+[node name="HighscoreTXT" type="Label" parent="Texts" unique_id=1287870626]
+offset_left = 218.0
+offset_top = 10.0
+offset_right = 358.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("2_w7c3h")
+theme_override_font_sizes/font_size = 8
+text = "HIGH SCORE"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="highscore" type="Label" parent="Texts" unique_id=1822561096]
+offset_left = 218.0
+offset_top = 19.0
+offset_right = 358.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("2_w7c3h")
+theme_override_font_sizes/font_size = 8
+text = "13110"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="scoreTXT" type="Label" parent="Texts" unique_id=602893889]
+offset_left = 145.0
+offset_top = 18.0
+offset_right = 285.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("2_w7c3h")
+theme_override_font_sizes/font_size = 8
+text = "1UP"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="score" type="Label" parent="Texts" unique_id=1755667135]
+offset_left = 145.0
+offset_top = 27.0
+offset_right = 285.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("2_w7c3h")
+theme_override_font_sizes/font_size = 8
+text = "13110"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1351592534]
+visible = false
+position = Vector2(176, 38)
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAACAAAAAAABAAAAAAADAAAAAAABAAAAAAAEAAAAAAABAAAAAAAFAAAAAAABAAAAAAAGAAAAAAABAAAAAAAHAAAAAAABAAAAAAAIAAAAAAABAAAAAAAJAAAAAAABAAAAAAAKAAAAAAABAAAAAAALAAAAAAABAAAAAAAMAAAAAAABAAAAAAANAAAAAAABAAAAAAANAAEAAAABAAAAAAANAAIAAAABAAAAAAANAAMAAAABAAAAAAANAAQAAAABAAAAAAAOAAQAAAABAAAAAAAOAAMAAAABAAAAAAAOAAIAAAABAAAAAAAOAAEAAAABAAAAAAAOAAAAAAABAAAAAAAPAAAAAAABAAAAAAAQAAAAAAABAAAAAAARAAAAAAABAAAAAAASAAAAAAABAAAAAAATAAAAAAABAAAAAAAUAAAAAAABAAAAAAAVAAAAAAABAAAAAAAWAAAAAAABAAAAAAAXAAAAAAABAAAAAAAYAAAAAAABAAAAAAAZAAAAAAABAAAAAAAaAAAAAAABAAAAAAAbAAAAAAABAAAAAAAbAAEAAAABAAAAAAAbAAIAAAABAAAAAAAbAAMAAAABAAAAAAAbAAQAAAABAAAAAAAbAAUAAAABAAAAAAAbAAYAAAABAAAAAAAbAAcAAAABAAAAAAAbAAgAAAABAAAAAAAbAAkAAAABAAAAAAAaAAkAAAABAAAAAAAZAAkAAAABAAAAAAAYAAkAAAABAAAAAAAXAAkAAAABAAAAAAAWAAkAAAABAAAAAAAWAAoAAAABAAAAAAAWAAsAAAABAAAAAAAWAAwAAAABAAAAAAAWAA0AAAABAAAAAAAXAA0AAAABAAAAAAAYAA0AAAABAAAAAAAYAA8AAAABAAAAAAAXAA8AAAABAAAAAAAWAA8AAAABAAAAAAAWABAAAAABAAAAAAAWABEAAAABAAAAAAAWABIAAAABAAAAAAAWABMAAAABAAAAAAAXABMAAAABAAAAAAAYABMAAAABAAAAAAAZABMAAAABAAAAAAAaABMAAAABAAAAAAAbABMAAAABAAAAAAAZAA8AAAABAAAAAAAaAA8AAAABAAAAAAAZAA0AAAABAAAAAAAaAA0AAAABAAAAAAAbAA0AAAABAAAAAAAcAA0AAAABAAAAAAAdAA0AAAABAAAAAAAeAA0AAAABAAAAAAAeAA4AAAABAAAAAAAbAA8AAAABAAAAAAAcAA8AAAABAAAAAAAdAA8AAAABAAAAAAAeAA8AAAABAAAAAAD//w8AAAABAAAAAAD//w0AAAABAAAAAAD+/w0AAAABAAAAAAD9/w0AAAABAAAAAAD9/w4AAAABAAAAAAD9/w8AAAABAAAAAAD+/w8AAAABAAAAAAAAAA8AAAABAAAAAAABAA8AAAABAAAAAAACAA8AAAABAAAAAAADAA8AAAABAAAAAAAEAA8AAAABAAAAAAAFAA8AAAABAAAAAAAFABAAAAABAAAAAAAFABEAAAABAAAAAAAFABIAAAABAAAAAAAFABMAAAABAAAAAAADABMAAAABAAAAAAACABMAAAABAAAAAAABABMAAAABAAAAAAAAABMAAAABAAAAAAAAABQAAAABAAAAAAAAABUAAAABAAAAAAAAABYAAAABAAAAAAAAABcAAAABAAAAAAAAABgAAAABAAAAAAAAABkAAAABAAAAAAABABgAAAABAAAAAAABABkAAAABAAAAAAACABkAAAABAAAAAAACABgAAAABAAAAAAAAABoAAAABAAAAAAAAABsAAAABAAAAAAAAABwAAAABAAAAAAAAAB0AAAABAAAAAAAAAB4AAAABAAAAAAABAB4AAAABAAAAAAACAB4AAAABAAAAAAADAB4AAAABAAAAAAAEAB4AAAABAAAAAAAFAB4AAAABAAAAAAAGAB4AAAABAAAAAAAHAB4AAAABAAAAAAAIAB4AAAABAAAAAAAJAB4AAAABAAAAAAAKAB4AAAABAAAAAAALAB4AAAABAAAAAAAMAB4AAAABAAAAAAANAB4AAAABAAAAAAAOAB4AAAABAAAAAAAPAB4AAAABAAAAAAAQAB4AAAABAAAAAAARAB4AAAABAAAAAAASAB4AAAABAAAAAAATAB4AAAABAAAAAAAUAB4AAAABAAAAAAAVAB4AAAABAAAAAAAWAB4AAAABAAAAAAAXAB4AAAABAAAAAAAYAB4AAAABAAAAAAAZAB4AAAABAAAAAAAaAB4AAAABAAAAAAAbAB4AAAABAAAAAAAbAB0AAAABAAAAAAAbABwAAAABAAAAAAAbABsAAAABAAAAAAAbABoAAAABAAAAAAAbABkAAAABAAAAAAAaABkAAAABAAAAAAAZABkAAAABAAAAAAAZABgAAAABAAAAAAAaABgAAAABAAAAAAAbABgAAAABAAAAAAAbABcAAAABAAAAAAAbABYAAAABAAAAAAAbABUAAAABAAAAAAAbABQAAAABAAAAAAAAAA0AAAABAAAAAAABAA0AAAABAAAAAAACAA0AAAABAAAAAAADAA0AAAABAAAAAAAEAA0AAAABAAAAAAAFAA0AAAABAAAAAAAFAAwAAAABAAAAAAAFAAsAAAABAAAAAAAFAAoAAAABAAAAAAAFAAkAAAABAAAAAAAEAAkAAAABAAAAAAADAAkAAAABAAAAAAACAAkAAAABAAAAAAABAAkAAAABAAAAAAAAAAkAAAABAAAAAAAAAAgAAAABAAAAAAAAAAcAAAABAAAAAAAAAAYAAAABAAAAAAAAAAUAAAABAAAAAAAAAAQAAAABAAAAAAAAAAMAAAABAAAAAAAAAAIAAAABAAAAAAAAAAEAAAABAAAAAAACAAIAAAABAAAAAAADAAIAAAABAAAAAAAEAAIAAAABAAAAAAAFAAIAAAABAAAAAAAFAAMAAAABAAAAAAAFAAQAAAABAAAAAAAEAAQAAAABAAAAAAADAAQAAAABAAAAAAACAAQAAAABAAAAAAACAAMAAAABAAAAAAACAAYAAAABAAAAAAADAAYAAAABAAAAAAAEAAYAAAABAAAAAAAFAAYAAAABAAAAAAAFAAcAAAABAAAAAAAEAAcAAAABAAAAAAADAAcAAAABAAAAAAACAAcAAAABAAAAAAAHAAQAAAABAAAAAAAIAAQAAAABAAAAAAAKAAQAAAABAAAAAAAJAAQAAAABAAAAAAALAAQAAAABAAAAAAALAAMAAAABAAAAAAALAAIAAAABAAAAAAAKAAIAAAABAAAAAAAJAAIAAAABAAAAAAAIAAIAAAABAAAAAAAHAAIAAAABAAAAAAAHAAMAAAABAAAAAAAQAAQAAAABAAAAAAARAAQAAAABAAAAAAASAAQAAAABAAAAAAATAAQAAAABAAAAAAAUAAQAAAABAAAAAAAUAAMAAAABAAAAAAAUAAIAAAABAAAAAAATAAIAAAABAAAAAAASAAIAAAABAAAAAAARAAIAAAABAAAAAAAQAAIAAAABAAAAAAAQAAMAAAABAAAAAAAWAAQAAAABAAAAAAAXAAQAAAABAAAAAAAYAAQAAAABAAAAAAAZAAQAAAABAAAAAAAZAAMAAAABAAAAAAAZAAIAAAABAAAAAAAYAAIAAAABAAAAAAAXAAIAAAABAAAAAAAWAAIAAAABAAAAAAAWAAMAAAABAAAAAAAWAAYAAAABAAAAAAAXAAYAAAABAAAAAAAYAAYAAAABAAAAAAAZAAYAAAABAAAAAAAZAAcAAAABAAAAAAAYAAcAAAABAAAAAAAXAAcAAAABAAAAAAAWAAcAAAABAAAAAAAHAAYAAAABAAAAAAAIAAYAAAABAAAAAAAIAAcAAAABAAAAAAAIAAgAAAABAAAAAAAHAAgAAAABAAAAAAAHAAkAAAABAAAAAAAIAAkAAAABAAAAAAAHAAcAAAABAAAAAAAIAAoAAAABAAAAAAAIAAsAAAABAAAAAAAIAAwAAAABAAAAAAAHAAwAAAABAAAAAAAHAA0AAAABAAAAAAAIAA0AAAABAAAAAAAHAAsAAAABAAAAAAAHAAoAAAABAAAAAAAJAAoAAAABAAAAAAAKAAoAAAABAAAAAAALAAoAAAABAAAAAAALAAkAAAABAAAAAAAKAAkAAAABAAAAAAAJAAkAAAABAAAAAAAQAAoAAAABAAAAAAAQAAkAAAABAAAAAAARAAkAAAABAAAAAAASAAkAAAABAAAAAAATAAkAAAABAAAAAAATAAgAAAABAAAAAAATAAcAAAABAAAAAAAUAAcAAAABAAAAAAAUAAYAAAABAAAAAAATAAYAAAABAAAAAAAUAAgAAAABAAAAAAAUAAkAAAABAAAAAAAUAAoAAAABAAAAAAAUAAsAAAABAAAAAAAUAAwAAAABAAAAAAAUAA0AAAABAAAAAAATAA0AAAABAAAAAAATAAwAAAABAAAAAAATAAsAAAABAAAAAAATAAoAAAABAAAAAAASAAoAAAABAAAAAAARAAoAAAABAAAAAAANAAoAAAABAAAAAAAOAAoAAAABAAAAAAAOAAkAAAABAAAAAAAOAAgAAAABAAAAAAAOAAcAAAABAAAAAAAPAAcAAAABAAAAAAAQAAcAAAABAAAAAAARAAcAAAABAAAAAAARAAYAAAABAAAAAAAQAAYAAAABAAAAAAAPAAYAAAABAAAAAAAOAAYAAAABAAAAAAANAAYAAAABAAAAAAAMAAYAAAABAAAAAAALAAYAAAABAAAAAAAKAAYAAAABAAAAAAAKAAcAAAABAAAAAAALAAcAAAABAAAAAAAMAAcAAAABAAAAAAANAAcAAAABAAAAAAANAAgAAAABAAAAAAANAAkAAAABAAAAAAAHAA8AAAABAAAAAAAIAA8AAAABAAAAAAAIABAAAAABAAAAAAAHABAAAAABAAAAAAAHABEAAAABAAAAAAAIABEAAAABAAAAAAAHABIAAAABAAAAAAAIABIAAAABAAAAAAAIABMAAAABAAAAAAAHABMAAAABAAAAAAAUAA8AAAABAAAAAAATAA8AAAABAAAAAAATABAAAAABAAAAAAAUABAAAAABAAAAAAATABEAAAABAAAAAAATABIAAAABAAAAAAAUABIAAAABAAAAAAAUABMAAAABAAAAAAATABMAAAABAAAAAAAUABEAAAABAAAAAAAQABYAAAABAAAAAAARABYAAAABAAAAAAASABYAAAABAAAAAAATABYAAAABAAAAAAAUABYAAAABAAAAAAAUABUAAAABAAAAAAATABUAAAABAAAAAAASABUAAAABAAAAAAARABUAAAABAAAAAAAQABUAAAABAAAAAAAHABYAAAABAAAAAAAIABYAAAABAAAAAAAJABYAAAABAAAAAAAKABYAAAABAAAAAAALABYAAAABAAAAAAALABUAAAABAAAAAAAKABUAAAABAAAAAAAJABUAAAABAAAAAAAIABUAAAABAAAAAAAHABUAAAABAAAAAAAHABgAAAABAAAAAAAHABkAAAABAAAAAAAHABoAAAABAAAAAAAHABsAAAABAAAAAAAGABsAAAABAAAAAAAFABsAAAABAAAAAAAEABsAAAABAAAAAAADABsAAAABAAAAAAADABwAAAABAAAAAAACABwAAAABAAAAAAACABsAAAABAAAAAAAEABwAAAABAAAAAAAFABwAAAABAAAAAAAGABwAAAABAAAAAAAHABwAAAABAAAAAAAIABwAAAABAAAAAAAJABwAAAABAAAAAAAKABwAAAABAAAAAAALABwAAAABAAAAAAALABsAAAABAAAAAAAKABsAAAABAAAAAAAJABsAAAABAAAAAAAIABsAAAABAAAAAAAIABoAAAABAAAAAAAIABkAAAABAAAAAAAIABgAAAABAAAAAAAEABkAAAABAAAAAAAFABkAAAABAAAAAAAFABgAAAABAAAAAAAFABcAAAABAAAAAAAFABUAAAABAAAAAAAEABUAAAABAAAAAAADABUAAAABAAAAAAACABUAAAABAAAAAAACABYAAAABAAAAAAADABYAAAABAAAAAAAEABYAAAABAAAAAAAEABgAAAABAAAAAAAEABcAAAABAAAAAAANABwAAAABAAAAAAAOABwAAAABAAAAAAAOABsAAAABAAAAAAAOABoAAAABAAAAAAAOABkAAAABAAAAAAAPABkAAAABAAAAAAAQABkAAAABAAAAAAARABkAAAABAAAAAAARABgAAAABAAAAAAAQABgAAAABAAAAAAAPABgAAAABAAAAAAAOABgAAAABAAAAAAANABgAAAABAAAAAAAMABgAAAABAAAAAAALABgAAAABAAAAAAAKABgAAAABAAAAAAAKABkAAAABAAAAAAALABkAAAABAAAAAAAMABkAAAABAAAAAAANABkAAAABAAAAAAANABoAAAABAAAAAAANABsAAAABAAAAAAAQABwAAAABAAAAAAAQABsAAAABAAAAAAARABsAAAABAAAAAAASABsAAAABAAAAAAATABsAAAABAAAAAAAUABsAAAABAAAAAAAVABsAAAABAAAAAAAWABsAAAABAAAAAAAXABsAAAABAAAAAAAYABsAAAABAAAAAAAZABsAAAABAAAAAAAZABwAAAABAAAAAAAYABwAAAABAAAAAAAXABwAAAABAAAAAAAWABwAAAABAAAAAAAVABwAAAABAAAAAAAUABwAAAABAAAAAAATABwAAAABAAAAAAASABwAAAABAAAAAAARABwAAAABAAAAAAATABoAAAABAAAAAAATABkAAAABAAAAAAATABgAAAABAAAAAAAUABgAAAABAAAAAAAUABkAAAABAAAAAAAUABoAAAABAAAAAAAWABkAAAABAAAAAAAXABkAAAABAAAAAAAXABgAAAABAAAAAAAWABgAAAABAAAAAAAWABcAAAABAAAAAAAXABcAAAABAAAAAAAXABYAAAABAAAAAAAWABYAAAABAAAAAAAWABUAAAABAAAAAAAXABUAAAABAAAAAAAYABUAAAABAAAAAAAYABYAAAABAAAAAAAZABUAAAABAAAAAAAZABYAAAABAAAAAAANABYAAAABAAAAAAAOABYAAAABAAAAAAAOABUAAAABAAAAAAAOABQAAAABAAAAAAAOABMAAAABAAAAAAAPABMAAAABAAAAAAAQABMAAAABAAAAAAAQABIAAAABAAAAAAARABIAAAABAAAAAAARABMAAAABAAAAAAAPABIAAAABAAAAAAAOABIAAAABAAAAAAANABIAAAABAAAAAAAMABIAAAABAAAAAAALABIAAAABAAAAAAAKABIAAAABAAAAAAAKABMAAAABAAAAAAALABMAAAABAAAAAAAMABMAAAABAAAAAAANABMAAAABAAAAAAANABQAAAABAAAAAAANABUAAAABAAAAAAAKABAAAAABAAAAAAAKAA8AAAABAAAAAAAKAA4AAAABAAAAAAAKAA0AAAABAAAAAAAKAAwAAAABAAAAAAALAAwAAAABAAAAAAAMAAwAAAABAAAAAAAPAAwAAAABAAAAAAAQAAwAAAABAAAAAAARAAwAAAABAAAAAAARAA0AAAABAAAAAAARAA4AAAABAAAAAAARAA8AAAABAAAAAAAQABAAAAABAAAAAAARABAAAAABAAAAAAAPABAAAAABAAAAAAAOABAAAAABAAAAAAANABAAAAABAAAAAAAMABAAAAABAAAAAAALABAAAAABAAAAAAAJAA4AAAABAAIAAAAJAA0AAAABAAEAAAAJAAwAAAABAAEAAAAJAAsAAAAAAAMAAAAKAAsAAAAAAAEAAAALAAsAAAAAAAEAAAAMAAsAAAADAAIAAAANAAsAAAABAAYAAAAOAAsAAAACAAYAAAAPAAsAAAADAAIAAAAQAAsAAAAAAAEAAAARAAsAAAAAAAEAAAASAAsAAAABAAMAAAASAAwAAAABAAEAAAASAA0AAAABAAEAAAASAA4AAAAAAAIAAAASAA8AAAABAAEAAAASABAAAAABAAEAAAASABEAAAABAAIAAAARABEAAAAAAAEAAAAQABEAAAAAAAEAAAAPABEAAAAAAAEAAAAOABEAAAAAAAEAAAANABEAAAAAAAEAAAAMABEAAAAAAAEAAAALABEAAAAAAAEAAAAKABEAAAAAAAEAAAAIAA4AAAAAAAEAAAAHAA4AAAAAAAEAAAAFAA4AAAAAAAEAAAAEAA4AAAAAAAEAAAADAA4AAAAAAAEAAAACAA4AAAAAAAEAAAABAA4AAAAAAAEAAAAAAA4AAAAAAAEAAAD//w4AAAAAAAEAAAD+/w4AAAACAAMAAAAEABQAAAAAAAEAAAADABQAAAAAAAEAAAACABQAAAAAAAEAAAABABQAAAAAAAMAAAABABUAAAABAAEAAAABABYAAAABAAEAAAABABcAAAAAAAQAAAACABcAAAAAAAEAAAADABcAAAABAAMAAAADABgAAAABAAEAAAADABkAAAABAAEAAAADABoAAAADAAIAAAACABoAAAAAAAEAAAABABoAAAAAAAMAAAABABsAAAABAAEAAAABABwAAAABAAEAAAABAB0AAAAAAAQAAAACAB0AAAAAAAEAAAADAB0AAAAAAAEAAAAEAB0AAAAAAAEAAAAFAB0AAAAAAAEAAAAGAB0AAAAAAAEAAAAHAB0AAAAAAAEAAAAIAB0AAAAAAAEAAAAJAB0AAAAAAAEAAAAKAB0AAAAAAAEAAAALAB0AAAAAAAEAAAAMAB0AAAADAAIAAAAMABwAAAABAAEAAAAMABsAAAABAAEAAAAMABoAAAABAAMAAAALABoAAAAAAAEAAAAKABoAAAAAAAEAAAAJABoAAAAAAAQAAAAJABkAAAABAAEAAAAJABgAAAABAAEAAAAJABcAAAACAAIAAAAIABcAAAAAAAEAAAAHABcAAAAAAAEAAAAGABcAAAAAAAIAAAAGABgAAAABAAEAAAAGABkAAAABAAEAAAAGABoAAAABAAQAAAAFABoAAAAAAAEAAAAEABoAAAAAAAEAAAAGABYAAAABAAEAAAAGABUAAAABAAEAAAAHABQAAAAAAAEAAAAIABQAAAAAAAEAAAAJABQAAAADAAIAAAAKABQAAAAAAAEAAAALABQAAAAAAAEAAAAMABQAAAABAAMAAAAMABUAAAABAAEAAAAMABYAAAABAAEAAAAMABcAAAADAAIAAAALABcAAAAAAAEAAAAKABcAAAAAAAEAAAANABcAAAAAAAEAAAAOABcAAAAAAAEAAAAPABcAAAADAAIAAAAQABcAAAAAAAEAAAARABcAAAAAAAEAAAASABcAAAACAAIAAAATABcAAAAAAAEAAAAUABcAAAAAAAEAAAAVABcAAAABAAIAAAAVABYAAAABAAEAAAAVABUAAAABAAEAAAAVABQAAAACAAEAAAAUABQAAAAAAAEAAAATABQAAAAAAAEAAAASABQAAAADAAIAAAARABQAAAAAAAEAAAAQABQAAAAAAAEAAAASABgAAAABAAEAAAASABkAAAABAAEAAAASABoAAAABAAQAAAARABoAAAAAAAEAAAAQABoAAAAAAAEAAAAPABoAAAAAAAMAAAAPABsAAAABAAEAAAAPABwAAAABAAEAAAAPAB0AAAADAAIAAAAOAB0AAAAAAAEAAAANAB0AAAAAAAEAAAAQAB0AAAAAAAEAAAARAB0AAAAAAAEAAAASAB0AAAAAAAEAAAATAB0AAAAAAAEAAAAUAB0AAAAAAAEAAAAVAB0AAAAAAAEAAAAWAB0AAAAAAAEAAAAXAB0AAAAAAAEAAAAYAB0AAAAAAAEAAAAZAB0AAAAAAAEAAAAaAB0AAAABAAQAAAAaABwAAAABAAEAAAAaABsAAAABAAEAAAAaABoAAAABAAMAAAAZABoAAAAAAAEAAAAYABoAAAADAAIAAAAXABoAAAAAAAEAAAAWABoAAAAAAAEAAAAVABoAAAAAAAQAAAAVABkAAAABAAEAAAAVABgAAAABAAEAAAAYABkAAAABAAEAAAAYABgAAAABAAEAAAAYABcAAAAAAAMAAAAZABcAAAAAAAEAAAAaABcAAAABAAQAAAAaABYAAAABAAEAAAAaABUAAAABAAEAAAAaABQAAAABAAMAAAAZABQAAAAAAAEAAAAYABQAAAAAAAEAAAAXABQAAAAAAAEAAAAWABQAAAAAAAEAAAAVABMAAAABAAEAAAAVABIAAAABAAEAAAASABMAAAABAAEAAAASABIAAAABAAEAAAAVABEAAAABAAEAAAAVABAAAAABAAEAAAAVAA8AAAABAAEAAAAVAA4AAAACAAEAAAAUAA4AAAAAAAEAAAATAA4AAAAAAAEAAAAWAA4AAAAAAAEAAAAXAA4AAAAAAAEAAAAYAA4AAAAAAAEAAAAZAA4AAAAAAAEAAAAaAA4AAAAAAAEAAAAbAA4AAAAAAAEAAAAcAA4AAAAAAAEAAAAdAA4AAAADAAMAAAAVAA0AAAABAAEAAAAVAAwAAAABAAEAAAAVAAsAAAABAAEAAAAVAAoAAAABAAEAAAAVAAkAAAABAAEAAAAVAAgAAAAAAAIAAAAWAAgAAAAAAAEAAAAXAAgAAAAAAAEAAAAYAAgAAAAAAAEAAAAZAAgAAAAAAAEAAAAaAAgAAAABAAQAAAAaAAcAAAABAAEAAAAaAAYAAAABAAEAAAAaAAUAAAABAAIAAAAaAAQAAAABAAEAAAAaAAMAAAABAAEAAAAaAAIAAAABAAEAAAAaAAEAAAABAAMAAAAZAAEAAAAAAAEAAAAYAAEAAAAAAAEAAAAXAAEAAAAAAAEAAAAWAAEAAAAAAAEAAAAVAAEAAAACAAIAAAAVAAIAAAABAAEAAAAVAAMAAAABAAEAAAAVAAQAAAABAAEAAAAVAAUAAAACAAEAAAAVAAYAAAABAAEAAAAVAAcAAAABAAEAAAAWAAUAAAAAAAEAAAAXAAUAAAAAAAEAAAAYAAUAAAAAAAEAAAAZAAUAAAAAAAEAAAAUAAUAAAAAAAEAAAATAAUAAAAAAAEAAAASAAUAAAACAAIAAAARAAUAAAAAAAEAAAAQAAUAAAAAAAEAAAAPAAUAAAADAAIAAAAPAAQAAAABAAEAAAAPAAMAAAABAAEAAAAPAAIAAAABAAEAAAAQAAEAAAAAAAEAAAARAAEAAAAAAAEAAAASAAEAAAAAAAEAAAATAAEAAAAAAAEAAAAUAAEAAAAAAAEAAAAPAAEAAAAAAAMAAAAOAAUAAAAAAAEAAAANAAUAAAAAAAEAAAAMAAUAAAADAAIAAAAMAAQAAAABAAEAAAAMAAMAAAABAAEAAAAMAAIAAAABAAEAAAAMAAEAAAABAAMAAAALAAEAAAAAAAEAAAAKAAEAAAAAAAEAAAAJAAEAAAAAAAEAAAAIAAEAAAAAAAEAAAAHAAEAAAAAAAEAAAAGAAEAAAACAAIAAAAGAAIAAAABAAEAAAAGAAMAAAABAAEAAAAGAAQAAAABAAEAAAAGAAUAAAACAAEAAAAGAAYAAAABAAEAAAAHAAUAAAAAAAEAAAAIAAUAAAAAAAEAAAAJAAUAAAACAAIAAAAKAAUAAAAAAAEAAAALAAUAAAAAAAEAAAAJAAYAAAABAAEAAAAJAAcAAAABAAEAAAAJAAgAAAAAAAQAAAAKAAgAAAAAAAEAAAALAAgAAAAAAAEAAAAMAAgAAAABAAMAAAAMAAkAAAABAAEAAAAMAAoAAAABAAEAAAASAAYAAAABAAEAAAASAAcAAAABAAEAAAASAAgAAAABAAQAAAARAAgAAAAAAAEAAAAQAAgAAAAAAAEAAAAPAAgAAAAAAAMAAAAPAAkAAAABAAEAAAAPAAoAAAABAAEAAAAGAAcAAAABAAEAAAAGAAgAAAABAAIAAAAGAAkAAAABAAEAAAAGAAoAAAABAAEAAAAGAAsAAAABAAEAAAAGAAwAAAABAAEAAAAGAA0AAAABAAEAAAAFAAgAAAAAAAEAAAAEAAgAAAAAAAEAAAADAAgAAAAAAAEAAAACAAgAAAAAAAEAAAABAAgAAAAAAAQAAAABAAcAAAABAAEAAAABAAYAAAABAAEAAAABAAUAAAAAAAIAAAACAAUAAAAAAAEAAAADAAUAAAAAAAEAAAAEAAUAAAAAAAEAAAAFAAUAAAAAAAEAAAABAAQAAAABAAEAAAABAAMAAAABAAEAAAABAAIAAAABAAEAAAABAAEAAAAAAAMAAAACAAEAAAAAAAEAAAADAAEAAAAAAAEAAAAEAAEAAAAAAAEAAAAFAAEAAAAAAAEAAAAJABMAAAABAAEAAAAJABIAAAABAAEAAAAJABEAAAAAAAIAAAAJABAAAAABAAEAAAAJAA8AAAABAAEAAAAFABYAAAABAAAAAAAEABMAAAABAAAAAAAGABQAAAACAAEAAAAGABMAAAABAAEAAAAGABIAAAABAAEAAAAGABEAAAABAAEAAAAGABAAAAABAAEAAAAGAA8AAAABAAEAAAAGAA4AAAACAAEAAAAFABQAAAAAAAEAAAAPABYAAAABAAEAAAAPABUAAAABAAEAAAAPABQAAAAAAAMAAAANAAwAAAACAAQAAAAOAAwAAAADAAQAAAALAA0AAAAAAAUAAAALAA8AAAAAAAcAAAAQAA0AAAAFAAUAAAAQAA4AAAAFAAYAAAAQAA8AAAAFAAcAAAAPAA4AAAAEAAYAAAAOAA4AAAAEAAYAAAANAA4AAAAEAAYAAAAMAA4AAAAEAAYAAAAMAA0AAAABAAUAAAAPAA0AAAABAAUAAAANAA0AAAACAAUAAAAOAA0AAAADAAUAAAAMAA8AAAACAAcAAAANAA8AAAACAAcAAAAOAA8AAAACAAcAAAAPAA8AAAACAAcAAAALAA4AAAAAAAYAAAA=")
+tile_set = SubResource("TileSet_2r41h")
+script = ExtResource("5_2r41h")
+
+[node name="TeleporterLeft" type="Area2D" parent="TileMapLayer" unique_id=767803121]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/TeleporterLeft" unique_id=1607900816]
+position = Vector2(-12, 116)
+shape = SubResource("RectangleShape2D_klq6b")
+debug_color = Color(0.58288574, 0.29204538, 1.92523e-07, 0.41960785)
+
+[node name="TeleporterRight" type="Area2D" parent="TileMapLayer" unique_id=394657926]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/TeleporterRight" unique_id=1576936501]
+position = Vector2(236, 116)
+shape = SubResource("RectangleShape2D_klq6b")
+debug_color = Color(0.58288574, 0.29204538, 1.92523e-07, 0.41960785)
+
+[node name="NavigationLink2D" type="NavigationLink2D" parent="TileMapLayer" unique_id=1174691389]
+position = Vector2(-25, 12)
+navigation_layers = 3
+start_position = Vector2(13, 104)
+end_position = Vector2(261, 104)
+travel_cost = 0.0
+
+[node name="points" type="Node2D" parent="." unique_id=239039516]
+
+[node name="point" parent="points" unique_id=836833284 instance=ExtResource("32_2e2fo")]
+position = Vector2(188, 226)
+size = 1
+
+[node name="point2" parent="points" unique_id=791035509 instance=ExtResource("32_2e2fo")]
+position = Vector2(388, 226)
+size = 1
+
+[node name="point3" parent="points" unique_id=628288191 instance=ExtResource("32_2e2fo")]
+position = Vector2(388, 66)
+size = 1
+
+[node name="point4" parent="points" unique_id=1344702099 instance=ExtResource("32_2e2fo")]
+position = Vector2(188, 66)
+size = 1
+
+[node name="point5" parent="points" unique_id=309202154 instance=ExtResource("32_2e2fo")]
+position = Vector2(188, 58)
+
+[node name="point6" parent="points" unique_id=1997909827 instance=ExtResource("32_2e2fo")]
+position = Vector2(188, 50)
+
+[node name="point7" parent="points" unique_id=1354814039 instance=ExtResource("32_2e2fo")]
+position = Vector2(196, 50)
+
+[node name="point8" parent="points" unique_id=288244179 instance=ExtResource("32_2e2fo")]
+position = Vector2(204, 50)
+
+[node name="point9" parent="points" unique_id=428864420 instance=ExtResource("32_2e2fo")]
+position = Vector2(212, 50)
+
+[node name="point10" parent="points" unique_id=735489899 instance=ExtResource("32_2e2fo")]
+position = Vector2(220, 50)
+
+[node name="point11" parent="points" unique_id=1847156053 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 50)
+
+[node name="point12" parent="points" unique_id=1137216840 instance=ExtResource("32_2e2fo")]
+position = Vector2(236, 50)
+
+[node name="point13" parent="points" unique_id=885583041 instance=ExtResource("32_2e2fo")]
+position = Vector2(244, 50)
+
+[node name="point14" parent="points" unique_id=345752858 instance=ExtResource("32_2e2fo")]
+position = Vector2(252, 50)
+
+[node name="point15" parent="points" unique_id=140452168 instance=ExtResource("32_2e2fo")]
+position = Vector2(260, 50)
+
+[node name="point16" parent="points" unique_id=821441485 instance=ExtResource("32_2e2fo")]
+position = Vector2(268, 50)
+
+[node name="point17" parent="points" unique_id=1930450588 instance=ExtResource("32_2e2fo")]
+position = Vector2(276, 50)
+
+[node name="point18" parent="points" unique_id=1246010076 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 82)
+
+[node name="point19" parent="points" unique_id=658829247 instance=ExtResource("32_2e2fo")]
+position = Vector2(236, 82)
+
+[node name="point20" parent="points" unique_id=360438752 instance=ExtResource("32_2e2fo")]
+position = Vector2(244, 82)
+
+[node name="point21" parent="points" unique_id=1627148195 instance=ExtResource("32_2e2fo")]
+position = Vector2(204, 82)
+
+[node name="point22" parent="points" unique_id=1879015878 instance=ExtResource("32_2e2fo")]
+position = Vector2(212, 82)
+
+[node name="point23" parent="points" unique_id=1218470398 instance=ExtResource("32_2e2fo")]
+position = Vector2(220, 82)
+
+[node name="point24" parent="points" unique_id=1186887394 instance=ExtResource("32_2e2fo")]
+position = Vector2(188, 106)
+
+[node name="point25" parent="points" unique_id=1088174679 instance=ExtResource("32_2e2fo")]
+position = Vector2(196, 106)
+
+[node name="point26" parent="points" unique_id=1595997604 instance=ExtResource("32_2e2fo")]
+position = Vector2(204, 106)
+
+[node name="point27" parent="points" unique_id=1843184769 instance=ExtResource("32_2e2fo")]
+position = Vector2(212, 106)
+
+[node name="point28" parent="points" unique_id=930519794 instance=ExtResource("32_2e2fo")]
+position = Vector2(220, 106)
+
+[node name="point29" parent="points" unique_id=703120881 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 106)
+
+[node name="point30" parent="points" unique_id=81143553 instance=ExtResource("32_2e2fo")]
+position = Vector2(252, 82)
+
+[node name="point31" parent="points" unique_id=1571050749 instance=ExtResource("32_2e2fo")]
+position = Vector2(260, 82)
+
+[node name="point32" parent="points" unique_id=1600374199 instance=ExtResource("32_2e2fo")]
+position = Vector2(268, 82)
+
+[node name="point33" parent="points" unique_id=694607410 instance=ExtResource("32_2e2fo")]
+position = Vector2(276, 82)
+
+[node name="point34" parent="points" unique_id=1578983407 instance=ExtResource("32_2e2fo")]
+position = Vector2(284, 82)
+
+[node name="point35" parent="points" unique_id=22558880 instance=ExtResource("32_2e2fo")]
+position = Vector2(292, 82)
+
+[node name="point36" parent="points" unique_id=584223246 instance=ExtResource("32_2e2fo")]
+position = Vector2(300, 82)
+
+[node name="point37" parent="points" unique_id=1927290416 instance=ExtResource("32_2e2fo")]
+position = Vector2(308, 82)
+
+[node name="point38" parent="points" unique_id=1149425210 instance=ExtResource("32_2e2fo")]
+position = Vector2(316, 82)
+
+[node name="point39" parent="points" unique_id=1690502768 instance=ExtResource("32_2e2fo")]
+position = Vector2(324, 82)
+
+[node name="point40" parent="points" unique_id=12312457 instance=ExtResource("32_2e2fo")]
+position = Vector2(332, 82)
+
+[node name="point41" parent="points" unique_id=1518634514 instance=ExtResource("32_2e2fo")]
+position = Vector2(340, 82)
+
+[node name="point42" parent="points" unique_id=1558706727 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 82)
+
+[node name="point43" parent="points" unique_id=881712204 instance=ExtResource("32_2e2fo")]
+position = Vector2(356, 82)
+
+[node name="point44" parent="points" unique_id=1158374829 instance=ExtResource("32_2e2fo")]
+position = Vector2(364, 82)
+
+[node name="point45" parent="points" unique_id=1879535919 instance=ExtResource("32_2e2fo")]
+position = Vector2(372, 82)
+
+[node name="point46" parent="points" unique_id=1477374495 instance=ExtResource("32_2e2fo")]
+position = Vector2(380, 82)
+
+[node name="point47" parent="points" unique_id=1539871703 instance=ExtResource("32_2e2fo")]
+position = Vector2(388, 82)
+
+[node name="point48" parent="points" unique_id=1953367541 instance=ExtResource("32_2e2fo")]
+position = Vector2(372, 50)
+
+[node name="point49" parent="points" unique_id=428608839 instance=ExtResource("32_2e2fo")]
+position = Vector2(380, 50)
+
+[node name="point50" parent="points" unique_id=1495437870 instance=ExtResource("32_2e2fo")]
+position = Vector2(388, 50)
+
+[node name="point51" parent="points" unique_id=191634376 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 50)
+
+[node name="point52" parent="points" unique_id=1635152770 instance=ExtResource("32_2e2fo")]
+position = Vector2(356, 50)
+
+[node name="point53" parent="points" unique_id=1727256683 instance=ExtResource("32_2e2fo")]
+position = Vector2(364, 50)
+
+[node name="point54" parent="points" unique_id=1211284438 instance=ExtResource("32_2e2fo")]
+position = Vector2(324, 50)
+
+[node name="point55" parent="points" unique_id=1985203138 instance=ExtResource("32_2e2fo")]
+position = Vector2(332, 50)
+
+[node name="point56" parent="points" unique_id=1995187178 instance=ExtResource("32_2e2fo")]
+position = Vector2(340, 50)
+
+[node name="point57" parent="points" unique_id=346189455 instance=ExtResource("32_2e2fo")]
+position = Vector2(300, 50)
+
+[node name="point58" parent="points" unique_id=660386431 instance=ExtResource("32_2e2fo")]
+position = Vector2(308, 50)
+
+[node name="point59" parent="points" unique_id=121556961 instance=ExtResource("32_2e2fo")]
+position = Vector2(316, 50)
+
+[node name="point60" parent="points" unique_id=170836203 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 106)
+
+[node name="point61" parent="points" unique_id=724901619 instance=ExtResource("32_2e2fo")]
+position = Vector2(356, 106)
+
+[node name="point62" parent="points" unique_id=1410686590 instance=ExtResource("32_2e2fo")]
+position = Vector2(364, 106)
+
+[node name="point63" parent="points" unique_id=479671178 instance=ExtResource("32_2e2fo")]
+position = Vector2(372, 106)
+
+[node name="point64" parent="points" unique_id=1336396703 instance=ExtResource("32_2e2fo")]
+position = Vector2(380, 106)
+
+[node name="point65" parent="points" unique_id=667094387 instance=ExtResource("32_2e2fo")]
+position = Vector2(388, 106)
+
+[node name="point66" parent="points" unique_id=218757811 instance=ExtResource("32_2e2fo")]
+position = Vector2(300, 106)
+
+[node name="point67" parent="points" unique_id=1263010034 instance=ExtResource("32_2e2fo")]
+position = Vector2(308, 106)
+
+[node name="point68" parent="points" unique_id=472630649 instance=ExtResource("32_2e2fo")]
+position = Vector2(316, 106)
+
+[node name="point69" parent="points" unique_id=838887114 instance=ExtResource("32_2e2fo")]
+position = Vector2(260, 106)
+
+[node name="point70" parent="points" unique_id=1502969656 instance=ExtResource("32_2e2fo")]
+position = Vector2(268, 106)
+
+[node name="point71" parent="points" unique_id=22794906 instance=ExtResource("32_2e2fo")]
+position = Vector2(276, 106)
+
+[node name="point72" parent="points" unique_id=1881193337 instance=ExtResource("32_2e2fo")]
+position = Vector2(260, 202)
+
+[node name="point73" parent="points" unique_id=1714561410 instance=ExtResource("32_2e2fo")]
+position = Vector2(268, 202)
+
+[node name="point74" parent="points" unique_id=578966767 instance=ExtResource("32_2e2fo")]
+position = Vector2(276, 202)
+
+[node name="point75" parent="points" unique_id=1150934658 instance=ExtResource("32_2e2fo")]
+position = Vector2(300, 202)
+
+[node name="point76" parent="points" unique_id=291653253 instance=ExtResource("32_2e2fo")]
+position = Vector2(308, 202)
+
+[node name="point77" parent="points" unique_id=1359732879 instance=ExtResource("32_2e2fo")]
+position = Vector2(316, 202)
+
+[node name="point78" parent="points" unique_id=174434181 instance=ExtResource("32_2e2fo")]
+position = Vector2(324, 202)
+
+[node name="point79" parent="points" unique_id=31165144 instance=ExtResource("32_2e2fo")]
+position = Vector2(332, 202)
+
+[node name="point80" parent="points" unique_id=934685922 instance=ExtResource("32_2e2fo")]
+position = Vector2(340, 202)
+
+[node name="point81" parent="points" unique_id=138898229 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 202)
+
+[node name="point82" parent="points" unique_id=564297858 instance=ExtResource("32_2e2fo")]
+position = Vector2(356, 202)
+
+[node name="point83" parent="points" unique_id=796711043 instance=ExtResource("32_2e2fo")]
+position = Vector2(364, 202)
+
+[node name="point84" parent="points" unique_id=1604022611 instance=ExtResource("32_2e2fo")]
+position = Vector2(372, 202)
+
+[node name="point85" parent="points" unique_id=949383052 instance=ExtResource("32_2e2fo")]
+position = Vector2(380, 202)
+
+[node name="point86" parent="points" unique_id=1395232369 instance=ExtResource("32_2e2fo")]
+position = Vector2(388, 202)
+
+[node name="point87" parent="points" unique_id=1102265292 instance=ExtResource("32_2e2fo")]
+position = Vector2(332, 226)
+
+[node name="point88" parent="points" unique_id=268336498 instance=ExtResource("32_2e2fo")]
+position = Vector2(340, 226)
+
+[node name="point89" parent="points" unique_id=1034864639 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 226)
+
+[node name="point90" parent="points" unique_id=1855673138 instance=ExtResource("32_2e2fo")]
+position = Vector2(308, 226)
+
+[node name="point241" parent="points" unique_id=1229088614 instance=ExtResource("32_2e2fo")]
+position = Vector2(300, 226)
+
+[node name="point91" parent="points" unique_id=1129207166 instance=ExtResource("32_2e2fo")]
+position = Vector2(316, 226)
+
+[node name="point92" parent="points" unique_id=1574539872 instance=ExtResource("32_2e2fo")]
+position = Vector2(324, 226)
+
+[node name="point93" parent="points" unique_id=106311347 instance=ExtResource("32_2e2fo")]
+position = Vector2(308, 250)
+
+[node name="point94" parent="points" unique_id=1255223951 instance=ExtResource("32_2e2fo")]
+position = Vector2(316, 250)
+
+[node name="point95" parent="points" unique_id=1207798560 instance=ExtResource("32_2e2fo")]
+position = Vector2(324, 250)
+
+[node name="point96" parent="points" unique_id=1634137555 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 250)
+
+[node name="point97" parent="points" unique_id=1958405471 instance=ExtResource("32_2e2fo")]
+position = Vector2(356, 250)
+
+[node name="point98" parent="points" unique_id=1830181130 instance=ExtResource("32_2e2fo")]
+position = Vector2(364, 250)
+
+[node name="point99" parent="points" unique_id=69741218 instance=ExtResource("32_2e2fo")]
+position = Vector2(372, 250)
+
+[node name="point100" parent="points" unique_id=1145566602 instance=ExtResource("32_2e2fo")]
+position = Vector2(380, 250)
+
+[node name="point101" parent="points" unique_id=2129640212 instance=ExtResource("32_2e2fo")]
+position = Vector2(388, 250)
+
+[node name="point102" parent="points" unique_id=73451771 instance=ExtResource("32_2e2fo")]
+position = Vector2(372, 274)
+
+[node name="point103" parent="points" unique_id=542413595 instance=ExtResource("32_2e2fo")]
+position = Vector2(380, 274)
+
+[node name="point104" parent="points" unique_id=1105408940 instance=ExtResource("32_2e2fo")]
+position = Vector2(388, 274)
+
+[node name="point105" parent="points" unique_id=147299531 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 274)
+
+[node name="point106" parent="points" unique_id=569057660 instance=ExtResource("32_2e2fo")]
+position = Vector2(356, 274)
+
+[node name="point107" parent="points" unique_id=1603787511 instance=ExtResource("32_2e2fo")]
+position = Vector2(364, 274)
+
+[node name="point108" parent="points" unique_id=450610413 instance=ExtResource("32_2e2fo")]
+position = Vector2(324, 274)
+
+[node name="point109" parent="points" unique_id=1073580748 instance=ExtResource("32_2e2fo")]
+position = Vector2(332, 274)
+
+[node name="point110" parent="points" unique_id=1548165033 instance=ExtResource("32_2e2fo")]
+position = Vector2(340, 274)
+
+[node name="point111" parent="points" unique_id=2024935979 instance=ExtResource("32_2e2fo")]
+position = Vector2(300, 274)
+
+[node name="point112" parent="points" unique_id=1520465075 instance=ExtResource("32_2e2fo")]
+position = Vector2(308, 274)
+
+[node name="point113" parent="points" unique_id=797333278 instance=ExtResource("32_2e2fo")]
+position = Vector2(316, 274)
+
+[node name="point114" parent="points" unique_id=1767777838 instance=ExtResource("32_2e2fo")]
+position = Vector2(276, 274)
+
+[node name="point115" parent="points" unique_id=371544249 instance=ExtResource("32_2e2fo")]
+position = Vector2(284, 274)
+
+[node name="point116" parent="points" unique_id=1971893807 instance=ExtResource("32_2e2fo")]
+position = Vector2(292, 274)
+
+[node name="point117" parent="points" unique_id=1055284477 instance=ExtResource("32_2e2fo")]
+position = Vector2(252, 274)
+
+[node name="point118" parent="points" unique_id=1914492136 instance=ExtResource("32_2e2fo")]
+position = Vector2(260, 274)
+
+[node name="point119" parent="points" unique_id=1810508374 instance=ExtResource("32_2e2fo")]
+position = Vector2(268, 274)
+
+[node name="point120" parent="points" unique_id=780244305 instance=ExtResource("32_2e2fo")]
+position = Vector2(188, 274)
+
+[node name="point121" parent="points" unique_id=848887910 instance=ExtResource("32_2e2fo")]
+position = Vector2(196, 274)
+
+[node name="point122" parent="points" unique_id=1838504935 instance=ExtResource("32_2e2fo")]
+position = Vector2(204, 274)
+
+[node name="point123" parent="points" unique_id=1587786454 instance=ExtResource("32_2e2fo")]
+position = Vector2(212, 274)
+
+[node name="point124" parent="points" unique_id=655824898 instance=ExtResource("32_2e2fo")]
+position = Vector2(220, 274)
+
+[node name="point125" parent="points" unique_id=1669594378 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 274)
+
+[node name="point126" parent="points" unique_id=175641585 instance=ExtResource("32_2e2fo")]
+position = Vector2(212, 250)
+
+[node name="point127" parent="points" unique_id=1156145291 instance=ExtResource("32_2e2fo")]
+position = Vector2(220, 250)
+
+[node name="point128" parent="points" unique_id=517931328 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 250)
+
+[node name="point129" parent="points" unique_id=1019527884 instance=ExtResource("32_2e2fo")]
+position = Vector2(188, 250)
+
+[node name="point130" parent="points" unique_id=332057635 instance=ExtResource("32_2e2fo")]
+position = Vector2(196, 250)
+
+[node name="point131" parent="points" unique_id=33623267 instance=ExtResource("32_2e2fo")]
+position = Vector2(204, 250)
+
+[node name="point235" parent="points" unique_id=1345492728 instance=ExtResource("32_2e2fo")]
+position = Vector2(196, 226)
+
+[node name="point236" parent="points" unique_id=15132773 instance=ExtResource("32_2e2fo")]
+position = Vector2(204, 226)
+
+[node name="point237" parent="points" unique_id=108645812 instance=ExtResource("32_2e2fo")]
+position = Vector2(236, 274)
+
+[node name="point238" parent="points" unique_id=1303402878 instance=ExtResource("32_2e2fo")]
+position = Vector2(244, 274)
+
+[node name="point239" parent="points" unique_id=1781548285 instance=ExtResource("32_2e2fo")]
+position = Vector2(372, 226)
+
+[node name="point240" parent="points" unique_id=1588089526 instance=ExtResource("32_2e2fo")]
+position = Vector2(380, 226)
+
+[node name="point132" parent="points" unique_id=1936370469 instance=ExtResource("32_2e2fo")]
+position = Vector2(188, 202)
+
+[node name="point133" parent="points" unique_id=334603257 instance=ExtResource("32_2e2fo")]
+position = Vector2(196, 202)
+
+[node name="point134" parent="points" unique_id=565294217 instance=ExtResource("32_2e2fo")]
+position = Vector2(204, 202)
+
+[node name="point135" parent="points" unique_id=525322111 instance=ExtResource("32_2e2fo")]
+position = Vector2(212, 202)
+
+[node name="point136" parent="points" unique_id=584156280 instance=ExtResource("32_2e2fo")]
+position = Vector2(220, 202)
+
+[node name="point137" parent="points" unique_id=1910894894 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 202)
+
+[node name="point138" parent="points" unique_id=381526777 instance=ExtResource("32_2e2fo")]
+position = Vector2(236, 202)
+
+[node name="point139" parent="points" unique_id=1514050643 instance=ExtResource("32_2e2fo")]
+position = Vector2(244, 202)
+
+[node name="point140" parent="points" unique_id=1717372183 instance=ExtResource("32_2e2fo")]
+position = Vector2(252, 202)
+
+[node name="point141" parent="points" unique_id=401010565 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 226)
+
+[node name="point142" parent="points" unique_id=1662315059 instance=ExtResource("32_2e2fo")]
+position = Vector2(236, 226)
+
+[node name="point143" parent="points" unique_id=1010237207 instance=ExtResource("32_2e2fo")]
+position = Vector2(244, 226)
+
+[node name="point144" parent="points" unique_id=713718341 instance=ExtResource("32_2e2fo")]
+position = Vector2(252, 226)
+
+[node name="point145" parent="points" unique_id=204623593 instance=ExtResource("32_2e2fo")]
+position = Vector2(260, 226)
+
+[node name="point146" parent="points" unique_id=129567646 instance=ExtResource("32_2e2fo")]
+position = Vector2(268, 226)
+
+[node name="point150" parent="points" unique_id=543313699 instance=ExtResource("32_2e2fo")]
+position = Vector2(276, 226)
+
+[node name="point151" parent="points" unique_id=798311773 instance=ExtResource("32_2e2fo")]
+position = Vector2(276, 218)
+
+[node name="point152" parent="points" unique_id=622941792 instance=ExtResource("32_2e2fo")]
+position = Vector2(276, 210)
+
+[node name="point153" parent="points" unique_id=1636272157 instance=ExtResource("32_2e2fo")]
+position = Vector2(300, 218)
+
+[node name="point154" parent="points" unique_id=1321781644 instance=ExtResource("32_2e2fo")]
+position = Vector2(300, 210)
+
+[node name="point155" parent="points" unique_id=344300229 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 218)
+
+[node name="point156" parent="points" unique_id=997189303 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 210)
+
+[node name="point157" parent="points" unique_id=1129346026 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 242)
+
+[node name="point158" parent="points" unique_id=1268587350 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 234)
+
+[node name="point159" parent="points" unique_id=1596130263 instance=ExtResource("32_2e2fo")]
+position = Vector2(324, 242)
+
+[node name="point160" parent="points" unique_id=90775611 instance=ExtResource("32_2e2fo")]
+position = Vector2(324, 234)
+
+[node name="point161" parent="points" unique_id=377819699 instance=ExtResource("32_2e2fo")]
+position = Vector2(300, 258)
+
+[node name="point162" parent="points" unique_id=318728604 instance=ExtResource("32_2e2fo")]
+position = Vector2(300, 250)
+
+[node name="point163" parent="points" unique_id=585262007 instance=ExtResource("32_2e2fo")]
+position = Vector2(276, 258)
+
+[node name="point242" parent="points" unique_id=427735658 instance=ExtResource("32_2e2fo")]
+position = Vector2(300, 266)
+
+[node name="point243" parent="points" unique_id=869287687 instance=ExtResource("32_2e2fo")]
+position = Vector2(276, 266)
+
+[node name="point164" parent="points" unique_id=777174454 instance=ExtResource("32_2e2fo")]
+position = Vector2(276, 250)
+
+[node name="point165" parent="points" unique_id=1165776620 instance=ExtResource("32_2e2fo")]
+position = Vector2(252, 242)
+
+[node name="point166" parent="points" unique_id=1242059779 instance=ExtResource("32_2e2fo")]
+position = Vector2(252, 234)
+
+[node name="point167" parent="points" unique_id=665491567 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 242)
+
+[node name="point168" parent="points" unique_id=1855950397 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 234)
+
+[node name="point169" parent="points" unique_id=1625188340 instance=ExtResource("32_2e2fo")]
+position = Vector2(204, 242)
+
+[node name="point170" parent="points" unique_id=1425185443 instance=ExtResource("32_2e2fo")]
+position = Vector2(204, 234)
+
+[node name="point171" parent="points" unique_id=798146777 instance=ExtResource("32_2e2fo")]
+position = Vector2(188, 266)
+
+[node name="point172" parent="points" unique_id=1967461413 instance=ExtResource("32_2e2fo")]
+position = Vector2(188, 258)
+
+[node name="point173" parent="points" unique_id=1281443461 instance=ExtResource("32_2e2fo")]
+position = Vector2(388, 266)
+
+[node name="point174" parent="points" unique_id=1385695469 instance=ExtResource("32_2e2fo")]
+position = Vector2(388, 258)
+
+[node name="point175" parent="points" unique_id=1869951777 instance=ExtResource("32_2e2fo")]
+position = Vector2(372, 242)
+
+[node name="point176" parent="points" unique_id=1796836814 instance=ExtResource("32_2e2fo")]
+position = Vector2(372, 234)
+
+[node name="point177" parent="points" unique_id=1163322293 instance=ExtResource("32_2e2fo")]
+position = Vector2(388, 218)
+
+[node name="point178" parent="points" unique_id=2045994050 instance=ExtResource("32_2e2fo")]
+position = Vector2(388, 210)
+
+[node name="point179" parent="points" unique_id=252620661 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 194)
+
+[node name="point180" parent="points" unique_id=1616554482 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 186)
+
+[node name="point181" parent="points" unique_id=103043485 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 178)
+
+[node name="point182" parent="points" unique_id=306576732 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 170)
+
+[node name="point183" parent="points" unique_id=957519352 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 162)
+
+[node name="point184" parent="points" unique_id=639630592 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 154)
+
+[node name="point185" parent="points" unique_id=245711066 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 146)
+
+[node name="point186" parent="points" unique_id=1395030690 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 138)
+
+[node name="point187" parent="points" unique_id=1793127949 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 130)
+
+[node name="point188" parent="points" unique_id=38155626 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 122)
+
+[node name="point189" parent="points" unique_id=1262593829 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 98)
+
+[node name="point190" parent="points" unique_id=848557656 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 90)
+
+[node name="point191" parent="points" unique_id=1434866934 instance=ExtResource("32_2e2fo")]
+position = Vector2(324, 98)
+
+[node name="point192" parent="points" unique_id=1823753762 instance=ExtResource("32_2e2fo")]
+position = Vector2(324, 90)
+
+[node name="point193" parent="points" unique_id=1014759140 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 74)
+
+[node name="point194" parent="points" unique_id=197943761 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 66)
+
+[node name="point195" parent="points" unique_id=1305615602 instance=ExtResource("32_2e2fo")]
+position = Vector2(388, 98)
+
+[node name="point196" parent="points" unique_id=476593659 instance=ExtResource("32_2e2fo")]
+position = Vector2(388, 90)
+
+[node name="point197" parent="points" unique_id=206069015 instance=ExtResource("32_2e2fo")]
+position = Vector2(300, 74)
+
+[node name="point198" parent="points" unique_id=111947661 instance=ExtResource("32_2e2fo")]
+position = Vector2(300, 66)
+
+[node name="point199" parent="points" unique_id=168432548 instance=ExtResource("32_2e2fo")]
+position = Vector2(276, 74)
+
+[node name="point200" parent="points" unique_id=342868083 instance=ExtResource("32_2e2fo")]
+position = Vector2(276, 66)
+
+[node name="point201" parent="points" unique_id=760486309 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 74)
+
+[node name="point202" parent="points" unique_id=225348064 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 66)
+
+[node name="point203" parent="points" unique_id=1988847663 instance=ExtResource("32_2e2fo")]
+position = Vector2(188, 82)
+
+[node name="point204" parent="points" unique_id=1928841759 instance=ExtResource("32_2e2fo")]
+position = Vector2(188, 74)
+
+[node name="point205" parent="points" unique_id=572756018 instance=ExtResource("32_2e2fo")]
+position = Vector2(188, 98)
+
+[node name="point206" parent="points" unique_id=546567068 instance=ExtResource("32_2e2fo")]
+position = Vector2(188, 90)
+
+[node name="point207" parent="points" unique_id=1783788691 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 98)
+
+[node name="point208" parent="points" unique_id=199090373 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 90)
+
+[node name="point209" parent="points" unique_id=725636576 instance=ExtResource("32_2e2fo")]
+position = Vector2(252, 98)
+
+[node name="point225" parent="points" unique_id=1221357841 instance=ExtResource("32_2e2fo")]
+position = Vector2(252, 106)
+
+[node name="point226" parent="points" unique_id=1941237501 instance=ExtResource("32_2e2fo")]
+position = Vector2(324, 106)
+
+[node name="point227" parent="points" unique_id=27515172 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 114)
+
+[node name="point228" parent="points" unique_id=718765203 instance=ExtResource("32_2e2fo")]
+position = Vector2(388, 74)
+
+[node name="point229" parent="points" unique_id=773254085 instance=ExtResource("32_2e2fo")]
+position = Vector2(388, 58)
+
+[node name="point230" parent="points" unique_id=1590364619 instance=ExtResource("32_2e2fo")]
+position = Vector2(348, 58)
+
+[node name="point231" parent="points" unique_id=1842124568 instance=ExtResource("32_2e2fo")]
+position = Vector2(300, 58)
+
+[node name="point232" parent="points" unique_id=1138678779 instance=ExtResource("32_2e2fo")]
+position = Vector2(276, 58)
+
+[node name="point233" parent="points" unique_id=932898102 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 58)
+
+[node name="point234" parent="points" unique_id=233171505 instance=ExtResource("32_2e2fo")]
+position = Vector2(196, 82)
+
+[node name="point210" parent="points" unique_id=1433186845 instance=ExtResource("32_2e2fo")]
+position = Vector2(252, 90)
+
+[node name="point211" parent="points" unique_id=1779040333 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 122)
+
+[node name="point212" parent="points" unique_id=1207832545 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 114)
+
+[node name="point213" parent="points" unique_id=762121344 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 138)
+
+[node name="point214" parent="points" unique_id=451519370 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 130)
+
+[node name="point215" parent="points" unique_id=1095591267 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 154)
+
+[node name="point216" parent="points" unique_id=1474578905 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 146)
+
+[node name="point217" parent="points" unique_id=1559804273 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 170)
+
+[node name="point218" parent="points" unique_id=1433257938 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 162)
+
+[node name="point219" parent="points" unique_id=239542197 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 186)
+
+[node name="point244" parent="points" unique_id=1364954872 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 194)
+
+[node name="point220" parent="points" unique_id=369018371 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 178)
+
+[node name="point221" parent="points" unique_id=87528237 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 218)
+
+[node name="point222" parent="points" unique_id=1870008507 instance=ExtResource("32_2e2fo")]
+position = Vector2(228, 210)
+
+[node name="point223" parent="points" unique_id=685980552 instance=ExtResource("32_2e2fo")]
+position = Vector2(188, 218)
+
+[node name="point224" parent="points" unique_id=334712490 instance=ExtResource("32_2e2fo")]
+position = Vector2(188, 210)
+
+[node name="point147" parent="points" unique_id=54977857 instance=ExtResource("32_2e2fo")]
+position = Vector2(252, 250)
+
+[node name="point148" parent="points" unique_id=2062321041 instance=ExtResource("32_2e2fo")]
+position = Vector2(260, 250)
+
+[node name="point149" parent="points" unique_id=1270198736 instance=ExtResource("32_2e2fo")]
+position = Vector2(268, 250)
+
+[node name="PacMan" parent="." unique_id=603066958 instance=ExtResource("5_ppgk2")]
+position = Vector2(289, 226)
+
+[node name="lower_ui" type="Node2D" parent="." unique_id=206520747]
+position = Vector2(176, 286)
+script = ExtResource("7_w3o6u")
+
+[node name="lives" type="AnimatedSprite2D" parent="lower_ui" unique_id=2001676328]
+position = Vector2(53, 12)
+sprite_frames = SubResource("SpriteFrames_2r41h")
+animation = &"4"
+
+[node name="levels" type="AnimatedSprite2D" parent="lower_ui" unique_id=1808261200]
+position = Vector2(156, 12)
+scale = Vector2(0.94, 0.94)
+sprite_frames = SubResource("SpriteFrames_556r4")
+animation = &"9"
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=200254538]
+offset_right = 176.0
+offset_bottom = 324.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=491769225]
+offset_left = 400.0
+offset_right = 576.0
+offset_bottom = 324.0
+color = Color(0, 0, 0, 1)
+
+[node name="AI" type="Node2D" parent="." unique_id=518073429]
+
+[node name="Blinky" parent="AI" unique_id=423937426 node_paths=PackedStringArray("Goal") instance=ExtResource("34_v3why")]
+position = Vector2(288, 147)
+Goal = NodePath("../../PacMan")
+house_x = 288.0
+house_y = 153.0
+
+[node name="Pinky" parent="AI" unique_id=276072950 node_paths=PackedStringArray("Goal") instance=ExtResource("34_v3why")]
+position = Vector2(288, 159)
+Goal = NodePath("../NavPoints/four-tiles")
+GhostType = 1
+house_x = 288.0
+house_y = 159.0
+
+[node name="Inky" parent="AI" unique_id=1325077530 node_paths=PackedStringArray("Goal") instance=ExtResource("34_v3why")]
+position = Vector2(304, 159)
+Goal = NodePath("../NavPoints/two-tiles-inky")
+GhostType = 2
+house_x = 304.0
+house_y = 159.0
+
+[node name="Clyde" parent="AI" unique_id=1051087446 node_paths=PackedStringArray("Goal") instance=ExtResource("34_v3why")]
+position = Vector2(272, 159)
+Goal = NodePath("../../PacMan")
+GhostType = 3
+house_x = 273.0
+house_y = 153.0
+
+[node name="CollisionShape2D2" parent="AI/Clyde/Inner Circle" parent_id_path=PackedInt32Array(1051087446, 619959568) index="0" unique_id=1054735]
+visible = true
+
+[node name="CollisionShape2D" parent="AI/Clyde/OuterCircle" parent_id_path=PackedInt32Array(1051087446, 1966835391) index="0" unique_id=186935706]
+visible = true
+
+[node name="_ArcadePacManMiscellaneousMazeParts" type="Sprite2D" parent="AI" unique_id=967323962]
+position = Vector2(360, 453)
+texture = ExtResource("35_q4oe8")
+
+[node name="NavPoints" type="Node2D" parent="AI" unique_id=38737128]
+unique_name_in_owner = true
+
+[node name="Clyde" type="Node2D" parent="AI/NavPoints" unique_id=7966344]
+
+[node name="1" type="Node2D" parent="AI/NavPoints/Clyde" unique_id=1078612468]
+position = Vector2(188, 274)
+
+[node name="2" type="Node2D" parent="AI/NavPoints/Clyde" unique_id=917497966]
+position = Vector2(236, 274)
+
+[node name="3" type="Node2D" parent="AI/NavPoints/Clyde" unique_id=1361095031]
+position = Vector2(252, 250)
+
+[node name="4" type="Node2D" parent="AI/NavPoints/Clyde" unique_id=1587522935]
+position = Vector2(228, 242)
+
+[node name="5" type="Node2D" parent="AI/NavPoints/Clyde" unique_id=996989882]
+position = Vector2(196, 226)
+
+[node name="6" type="Node2D" parent="AI/NavPoints/Clyde" unique_id=1284848054]
+position = Vector2(204, 202)
+
+[node name="7" type="Node2D" parent="AI/NavPoints/Clyde" unique_id=308952471]
+position = Vector2(244, 226)
+
+[node name="8" type="Node2D" parent="AI/NavPoints/Clyde" unique_id=1445238033]
+position = Vector2(276, 250)
+
+[node name="9" type="Node2D" parent="AI/NavPoints/Clyde" unique_id=1123121837]
+position = Vector2(276, 202)
+
+[node name="10" type="Node2D" parent="AI/NavPoints/Clyde" unique_id=186796083]
+position = Vector2(188, 250)
+
+[node name="PacManLocationTracker" type="Node2D" parent="AI/NavPoints" unique_id=54090658]
+position = Vector2(92, 147)
+script = ExtResource("36_2jdvr")
+
+[node name="four-tiles" type="Node2D" parent="AI/NavPoints" unique_id=1511571102]
+script = ExtResource("37_svjb4")
+
+[node name="two-tiles-inky" type="Node2D" parent="AI/NavPoints" unique_id=1696780380]
+script = ExtResource("38_c1pbi")
+
+[node name="DEV_FPS_counter" type="Label" parent="." unique_id=1459789075]
+offset_left = 52.0
+offset_top = 59.0
+offset_right = 92.0
+offset_bottom = 82.0
+script = ExtResource("36_q4oe8")
+
+[connection signal="area_entered" from="TileMapLayer/TeleporterLeft" to="TileMapLayer" method="_on_teleporter_left_area_entered"]
+[connection signal="body_entered" from="TileMapLayer/TeleporterLeft" to="TileMapLayer" method="_on_teleporter_left_body_entered"]
+[connection signal="area_entered" from="TileMapLayer/TeleporterRight" to="TileMapLayer" method="_on_teleporter_right_area_entered"]
+[connection signal="body_entered" from="TileMapLayer/TeleporterRight" to="TileMapLayer" method="_on_teleporter_right_body_entered"]
+
+[editable path="AI/Clyde"]

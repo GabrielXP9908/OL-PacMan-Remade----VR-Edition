@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://chc5tlg6urai0"]
+
+[ext_resource type="Script" uid="uid://dnovyslscidjs" path="res://scripts/xr_setup.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://c5fk0wrqan83q" path="res://assets/models/room_test_2.glb" id="2_jyhfs"]
+[ext_resource type="Script" uid="uid://b62gurrnbvfn7" path="res://scripts/vr_input.gd" id="3_tbgi4"]
+
+[node name="Main" type="Node3D" unique_id=1948331856]
+script = ExtResource("1_sugp2")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=470766725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1533611, 0.78973603, 1.0625459)
+omni_range = 1.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1757768781]
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1345849582]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40163139, 0.46357077, 1.3576915)
+omni_range = 1.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=1933431871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40163139, 0.46357077, 2.028183)
+omni_range = 1.0
+
+[node name="XROrigin3D" type="XROrigin3D" parent="." unique_id=583746222]
+transform = Transform3D(-0.99181885, 0, 0.1276533, 0, 1, 0, -0.1276533, 0, -0.99181885, -0.13846906, 0.66073126, 1.8845696)
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D" unique_id=702450560]
+
+[node name="LeftController" type="XRController3D" parent="XROrigin3D" unique_id=323104224]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09367561, 0, 0)
+tracker = &"left_hand"
+
+[node name="RightController" type="XRController3D" parent="XROrigin3D" unique_id=1662035675]
+tracker = &"right_hand"
+
+[node name="Room" parent="." unique_id=1981865854 instance=ExtResource("2_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.115817785, 0, 2.0152528)
+
+[node name="Large" parent="Room/room_test_2/General Room/Ceiling" parent_id_path=PackedInt32Array(1981865854, 335631703) index="0" unique_id=245337755]
+transform = Transform3D(0.9997342, 0.023053756, 0, -0.023053756, 0.9997342, 0, 0, 0, 1, 4.469255, 0.6114305, 0)
+
+[node name="slanted" parent="Room/room_test_2/General Room/Ceiling" parent_id_path=PackedInt32Array(1981865854, 335631703) index="1" unique_id=1079023515]
+transform = Transform3D(0.8660253, 0.5000001, 0, -0.5000001, 0.8660253, 0, 0, 0, 1, 5.110318, -0.0625, 0)
+
+[node name="ArcadeCabinet" type="Node3D" parent="Room" unique_id=1674563165]
+
+[node name="PacManViewport" type="SubViewport" parent="Room/ArcadeCabinet" unique_id=1532084813]
+
+[node name="ScreenMesh" type="MeshInstance3D" parent="Room/ArcadeCabinet" unique_id=495855164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20901036, 0.5103285, 0.1813879)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Room/ArcadeCabinet" unique_id=180916766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43045586, 0.50382257, 0.16409731)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room/ArcadeCabinet/StaticBody3D" unique_id=1651739893]
+
+[node name="VRInputHandler" type="Node3D" parent="." unique_id=716522563]
+script = ExtResource("3_tbgi4")
+
+[editable path="Room"]
