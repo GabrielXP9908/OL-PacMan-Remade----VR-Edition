@@ -29,3 +29,6 @@ func _ready() -> void:
 	
 	# PacMan starten
 	GameStateManager.updategamestate(1)
+	
+	print("Viewport size: ", pacman_viewport.size)
+	print("Children im Viewport: ", pacman_viewport.get_child_count())
